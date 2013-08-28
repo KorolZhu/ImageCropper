@@ -16,8 +16,14 @@
 		455AB2F917CD8FD100489D46 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 455AB2F817CD8FD100489D46 /* Default.png */; };
 		455AB2FB17CD8FD100489D46 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 455AB2FA17CD8FD100489D46 /* Default@2x.png */; };
 		455AB2FD17CD8FD100489D46 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 455AB2FC17CD8FD100489D46 /* Default-568h@2x.png */; };
-		455AB30017CD8FD100489D46 /* HTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455AB2FF17CD8FD100489D46 /* HTViewController.m */; };
-		455AB30317CD8FD100489D46 /* HTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455AB30117CD8FD100489D46 /* HTViewController.xib */; };
+		455AB30B17CD904B00489D46 /* HTImageCroperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455AB30A17CD904B00489D46 /* HTImageCroperViewController.m */; };
+		455AB30E17CD913600489D46 /* HTImageCroperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 455AB30D17CD913600489D46 /* HTImageCroperView.m */; };
+		455AB31117CD954D00489D46 /* HTCroperMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 455AB31017CD954D00489D46 /* HTCroperMaskView.m */; };
+		455AB31317CD998400489D46 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 455AB31217CD998400489D46 /* test.png */; };
+		455AB31617CDA2CA00489D46 /* picture_rotation_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 455AB31417CDA2CA00489D46 /* picture_rotation_left.png */; };
+		455AB31717CDA2CA00489D46 /* picture_rotation_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 455AB31517CDA2CA00489D46 /* picture_rotation_left@2x.png */; };
+		455AB31A17CDCFA700489D46 /* UIImage-Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 455AB31917CDCFA700489D46 /* UIImage-Extension.m */; };
+		455AB31D17CDDAC000489D46 /* test2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 455AB31C17CDDAC000489D46 /* test2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +40,19 @@
 		455AB2F817CD8FD100489D46 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		455AB2FA17CD8FD100489D46 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		455AB2FC17CD8FD100489D46 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		455AB2FE17CD8FD100489D46 /* HTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTViewController.h; sourceTree = "<group>"; };
-		455AB2FF17CD8FD100489D46 /* HTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTViewController.m; sourceTree = "<group>"; };
-		455AB30217CD8FD100489D46 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HTViewController.xib; sourceTree = "<group>"; };
+		455AB30917CD904B00489D46 /* HTImageCroperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTImageCroperViewController.h; sourceTree = "<group>"; };
+		455AB30A17CD904B00489D46 /* HTImageCroperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTImageCroperViewController.m; sourceTree = "<group>"; };
+		455AB30C17CD913600489D46 /* HTImageCroperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTImageCroperView.h; sourceTree = "<group>"; };
+		455AB30D17CD913600489D46 /* HTImageCroperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTImageCroperView.m; sourceTree = "<group>"; };
+		455AB30F17CD954D00489D46 /* HTCroperMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCroperMaskView.h; sourceTree = "<group>"; };
+		455AB31017CD954D00489D46 /* HTCroperMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCroperMaskView.m; sourceTree = "<group>"; };
+		455AB31217CD998400489D46 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		455AB31417CDA2CA00489D46 /* picture_rotation_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture_rotation_left.png; sourceTree = "<group>"; };
+		455AB31517CDA2CA00489D46 /* picture_rotation_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture_rotation_left@2x.png"; sourceTree = "<group>"; };
+		455AB31817CDCFA700489D46 /* UIImage-Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage-Extension.h"; sourceTree = "<group>"; };
+		455AB31917CDCFA700489D46 /* UIImage-Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage-Extension.m"; sourceTree = "<group>"; };
+		455AB31B17CDCFC400489D46 /* ARCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCHelper.h; sourceTree = "<group>"; };
+		455AB31C17CDDAC000489D46 /* test2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +99,17 @@
 		455AB2EC17CD8FD100489D46 /* ImageCroper */ = {
 			isa = PBXGroup;
 			children = (
+				455AB31B17CDCFC400489D46 /* ARCHelper.h */,
+				455AB31817CDCFA700489D46 /* UIImage-Extension.h */,
+				455AB31917CDCFA700489D46 /* UIImage-Extension.m */,
 				455AB2F517CD8FD100489D46 /* HTAppDelegate.h */,
 				455AB2F617CD8FD100489D46 /* HTAppDelegate.m */,
-				455AB2FE17CD8FD100489D46 /* HTViewController.h */,
-				455AB2FF17CD8FD100489D46 /* HTViewController.m */,
-				455AB30117CD8FD100489D46 /* HTViewController.xib */,
+				455AB30F17CD954D00489D46 /* HTCroperMaskView.h */,
+				455AB31017CD954D00489D46 /* HTCroperMaskView.m */,
+				455AB30C17CD913600489D46 /* HTImageCroperView.h */,
+				455AB30D17CD913600489D46 /* HTImageCroperView.m */,
+				455AB30917CD904B00489D46 /* HTImageCroperViewController.h */,
+				455AB30A17CD904B00489D46 /* HTImageCroperViewController.m */,
 				455AB2ED17CD8FD100489D46 /* Supporting Files */,
 			);
 			path = ImageCroper;
@@ -100,6 +122,10 @@
 				455AB2EF17CD8FD100489D46 /* InfoPlist.strings */,
 				455AB2F217CD8FD100489D46 /* main.m */,
 				455AB2F417CD8FD100489D46 /* ImageCroper-Prefix.pch */,
+				455AB31217CD998400489D46 /* test.png */,
+				455AB31C17CDDAC000489D46 /* test2.jpg */,
+				455AB31417CDA2CA00489D46 /* picture_rotation_left.png */,
+				455AB31517CDA2CA00489D46 /* picture_rotation_left@2x.png */,
 				455AB2F817CD8FD100489D46 /* Default.png */,
 				455AB2FA17CD8FD100489D46 /* Default@2x.png */,
 				455AB2FC17CD8FD100489D46 /* Default-568h@2x.png */,
@@ -163,7 +189,10 @@
 				455AB2F917CD8FD100489D46 /* Default.png in Resources */,
 				455AB2FB17CD8FD100489D46 /* Default@2x.png in Resources */,
 				455AB2FD17CD8FD100489D46 /* Default-568h@2x.png in Resources */,
-				455AB30317CD8FD100489D46 /* HTViewController.xib in Resources */,
+				455AB31317CD998400489D46 /* test.png in Resources */,
+				455AB31617CDA2CA00489D46 /* picture_rotation_left.png in Resources */,
+				455AB31717CDA2CA00489D46 /* picture_rotation_left@2x.png in Resources */,
+				455AB31D17CDDAC000489D46 /* test2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +205,10 @@
 			files = (
 				455AB2F317CD8FD100489D46 /* main.m in Sources */,
 				455AB2F717CD8FD100489D46 /* HTAppDelegate.m in Sources */,
-				455AB30017CD8FD100489D46 /* HTViewController.m in Sources */,
+				455AB30B17CD904B00489D46 /* HTImageCroperViewController.m in Sources */,
+				455AB30E17CD913600489D46 /* HTImageCroperView.m in Sources */,
+				455AB31117CD954D00489D46 /* HTCroperMaskView.m in Sources */,
+				455AB31A17CDCFA700489D46 /* UIImage-Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +221,6 @@
 				455AB2F017CD8FD100489D46 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		455AB30117CD8FD100489D46 /* HTViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				455AB30217CD8FD100489D46 /* en */,
-			);
-			name = HTViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

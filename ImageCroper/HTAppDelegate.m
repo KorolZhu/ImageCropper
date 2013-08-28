@@ -8,7 +8,7 @@
 
 #import "HTAppDelegate.h"
 
-#import "HTViewController.h"
+#import "HTImageCroperViewController.h"
 
 @implementation HTAppDelegate
 
@@ -16,7 +16,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[HTViewController alloc] initWithNibName:@"HTViewController" bundle:nil];
+    self.viewController = [[HTImageCroperViewController alloc] init];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

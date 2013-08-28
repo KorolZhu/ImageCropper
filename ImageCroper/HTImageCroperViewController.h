@@ -1,5 +1,5 @@
 //
-//  HTViewController.h
+//  HTImageCroperViewController.h
 //  ImageCroper
 //
 //  Created by zhuzhi on 13-8-28.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HTViewController : UIViewController
+@interface HTImageCroperViewController : UIViewController
 
 @end

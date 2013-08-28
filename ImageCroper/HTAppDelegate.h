@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class HTViewController;
+@class HTImageCroperViewController;
 
 @interface HTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) HTViewController *viewController;
+@property (strong, nonatomic) HTImageCroperViewController *viewController;
 
 @end
