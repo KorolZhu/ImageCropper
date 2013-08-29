@@ -27,22 +27,31 @@
     self = [super initWithFrame:frame];
     if (self) {
         _originImage = image;
-        _cropingImageView = [[UIImageView alloc] initWithImage:_originImage];
+        _cropingImageView = [[UIImageView alloc] initWithImage:image];
         
         _maskView = [[HTCroperMaskView alloc] initWithFrame:self.bounds];
         _maskView.backgroundColor = [UIColor clearColor];
         _maskView.userInteractionEnabled = NO;
         _maskView.cropsize = size;
         
-        _croperScrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        CGRect scrollFrame;
+        scrollFrame.size.width = MAX(frame.size.width, frame.size.height);
+        scrollFrame.size.height = scrollFrame.size.width;
+        scrollFrame.origin.x = (frame.size.width - scrollFrame.size.width) / 2.0f;
+        scrollFrame.origin.y = (frame.size.height - scrollFrame.size.width) / 2.0f;
+        _croperScrollView = [[UIScrollView alloc] initWithFrame:scrollFrame];
         _croperScrollView.showsHorizontalScrollIndicator = NO;
         _croperScrollView.showsVerticalScrollIndicator = NO;
         _croperScrollView.contentSize = _cropingImageView.frame.size;
-        _croperScrollView.contentInset = UIEdgeInsetsMake(_maskView.cropRect.origin.y, _maskView.cropRect.origin.x, _maskView.cropRect.origin.y, _maskView.cropRect.origin.x);
+        UIEdgeInsets edgeInset;
+        edgeInset.top = CGRectGetMinY(_maskView.cropRect) - CGRectGetMinY(_croperScrollView.frame);
+        edgeInset.left = CGRectGetMinX(_maskView.cropRect) - CGRectGetMinX(_croperScrollView.frame);
+        edgeInset.bottom = edgeInset.top;
+        edgeInset.right = edgeInset.left;
+        _croperScrollView.contentInset = edgeInset;
         _croperScrollView.minimumZoomScale = 1.0f;
         _croperScrollView.maximumZoomScale = 3.0f;
         _croperScrollView.delegate = self;
-        
         [_croperScrollView addSubview:_cropingImageView];
         
         [self addSubview:_croperScrollView];
@@ -53,39 +62,30 @@
 
 - (void)rotateLeftAnimated{
     [UIView animateWithDuration:0.2f animations:^{
-        _cropingImageView.transform = CGAffineTransformRotate(_cropingImageView.transform,-M_PI/2);
-        CGRect frame = _cropingImageView.frame;
-        frame.origin.x = 0.0f;
-        frame.origin.y = 0.0f;
-        _cropingImageView.frame = frame;
-        
-        _croperScrollView.contentOffset = CGPointZero;
-        _croperScrollView.contentSize = _cropingImageView.frame.size;
+        _croperScrollView.transform = CGAffineTransformRotate(_croperScrollView.transform,-M_PI/2);
     }];
 }
 
 - (UIImage *)crop{
     double zoomScale = [[_cropingImageView.layer valueForKeyPath:@"transform.scale.x"] floatValue];
-    double rotationZ = [[_cropingImageView.layer valueForKeyPath:@"transform.rotation.z"] floatValue];
+    double rotationZ = [[_croperScrollView.layer valueForKeyPath:@"transform.rotation.z"] floatValue];
     
-    CGPoint cropperViewOrigin = CGPointMake((_maskView.cropRect.origin.x - _cropingImageView.frame.origin.x + _croperScrollView.contentOffset.x)  *1/zoomScale ,( _maskView.cropRect.origin.y - _cropingImageView.frame.origin.y + _croperScrollView.contentOffset.y) * 1/zoomScale
-                                            );
+    CGPoint cropperViewOrigin;
+    cropperViewOrigin.x = (_maskView.cropRect.origin.x - (CGRectGetMinX(_cropingImageView.frame) - _croperScrollView.contentOffset.x + CGRectGetMinX(_croperScrollView.frame))) * 1.0f / zoomScale;
+    cropperViewOrigin.y = (_maskView.cropRect.origin.y - (CGRectGetMinY(_cropingImageView.frame) - _croperScrollView.contentOffset.y + CGRectGetMinY(_croperScrollView.frame))) * 1.0f / zoomScale;
     CGSize cropperViewSize = CGSizeMake(_maskView.cropRect.size.width * (1/zoomScale) ,_maskView.cropRect.size.height * (1/zoomScale));
     CGRect cropingViewRect;
     cropingViewRect.origin = cropperViewOrigin;
     cropingViewRect.size = cropperViewSize;
-    
-    NSLog(@"CropinView : %@",NSStringFromCGRect(cropingViewRect));
-    
+        
     UIImage *cropingImage = [_originImage imageByRotatingImage:_originImage fromImageOrientation:_originImage.imageOrientation];
-    cropingImage = [cropingImage imageRotatedByRadians:rotationZ];
-    CGImageRef tmp = CGImageCreateWithImageInRect([cropingImage CGImage], cropingViewRect);
-    UIImage *cropedImage = [UIImage imageWithCGImage:tmp scale:cropingImage.scale orientation:cropingImage.imageOrientation];
-    CGImageRelease(tmp);
+    
+    CGImageRef tmpImageRef = CGImageCreateWithImageInRect([cropingImage CGImage], cropingViewRect);
+    UIImage *tmpcropImage = [UIImage imageWithCGImage:tmpImageRef];
+    UIImage *cropedImage = [tmpcropImage imageRotatedByRadians:rotationZ];
     
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/test"];
     [UIImageJPEGRepresentation(cropedImage, 1.0f) writeToFile:path atomically:YES];
-//    UIImageWriteToSavedPhotosAlbum(cropedImage, nil, nil, nil);
     
     return cropedImage;
 }
