@@ -29,7 +29,7 @@
 }
 
 - (void)loadView{
-    _croperView = [[HTImageCroperView alloc] initWithFrame:[[UIScreen mainScreen] bounds] croperSize:CGSizeMake(300.0f, 300.0f) image:[UIImage imageNamed:@"test6.jpg"]];
+    _croperView = [[HTImageCroperView alloc] initWithFrame:[[UIScreen mainScreen] bounds] croperSize:CGSizeMake(300.0f, 300.0f) image:[UIImage imageNamed:@"test2.jpg"]];
     _croperView.backgroundColor = [UIColor blackColor];
     
     self.view = _croperView;

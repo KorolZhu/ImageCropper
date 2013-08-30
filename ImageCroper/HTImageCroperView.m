@@ -66,22 +66,13 @@
     }];
 }
 
-- (UIImage *)crop{
-    double zoomScale = [[_cropingImageView.layer valueForKeyPath:@"transform.scale.x"] floatValue];
-    double rotationZ = [[_croperScrollView.layer valueForKeyPath:@"transform.rotation.z"] floatValue];
-    
-    CGPoint cropperViewOrigin;
-    cropperViewOrigin.x = (_maskView.cropRect.origin.x - (CGRectGetMinX(_cropingImageView.frame) - _croperScrollView.contentOffset.x + CGRectGetMinX(_croperScrollView.frame))) * 1.0f / zoomScale;
-    cropperViewOrigin.y = (_maskView.cropRect.origin.y - (CGRectGetMinY(_cropingImageView.frame) - _croperScrollView.contentOffset.y + CGRectGetMinY(_croperScrollView.frame))) * 1.0f / zoomScale;
-    CGSize cropperViewSize = CGSizeMake(_maskView.cropRect.size.width * (1/zoomScale) ,_maskView.cropRect.size.height * (1/zoomScale));
-    CGRect cropingViewRect;
-    cropingViewRect.origin = cropperViewOrigin;
-    cropingViewRect.size = cropperViewSize;
-        
+- (UIImage *)crop{    
+    CGRect cropingViewRect = [_maskView convertRect:_maskView.cropRect toView:_cropingImageView];
     UIImage *cropingImage = [_originImage imageByRotatingImage:_originImage fromImageOrientation:_originImage.imageOrientation];
-    
     CGImageRef tmpImageRef = CGImageCreateWithImageInRect([cropingImage CGImage], cropingViewRect);
-    UIImage *tmpcropImage = [UIImage imageWithCGImage:tmpImageRef];
+    UIImage *tmpcropImage = [UIImage imageWithCGImage:tmpImageRef scale:cropingImage.scale orientation:cropingImage.imageOrientation];
+    
+    double rotationZ = [[_croperScrollView.layer valueForKeyPath:@"transform.rotation.z"] floatValue];
     UIImage *cropedImage = [tmpcropImage imageRotatedByRadians:rotationZ];
     
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/test"];
