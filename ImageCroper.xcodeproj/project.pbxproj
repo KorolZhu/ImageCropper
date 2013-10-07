@@ -289,10 +289,13 @@
 		455AB30717CD8FD100489D46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: LAP WA NGAI (BGM9PW4869)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageCroper/ImageCroper-Prefix.pch";
 				INFOPLIST_FILE = "ImageCroper/ImageCroper-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "056116E1-FDC9-46E1-A30D-DFF390F616A3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -300,10 +303,13 @@
 		455AB30817CD8FD100489D46 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: LAP WA NGAI (BGM9PW4869)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageCroper/ImageCroper-Prefix.pch";
 				INFOPLIST_FILE = "ImageCroper/ImageCroper-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "056116E1-FDC9-46E1-A30D-DFF390F616A3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -22,8 +22,9 @@
  如果我们忽略orientation信息，而直接对照片进行像素处理或者drawInRect等操作会出问题，
  所以，在对照片进行处理之前，先将照片旋转到正确的方向，并且返回的imageOrientaion为UIImageOrientaionUp。
  */
--(UIImage*)imageByRotatingImage:(UIImage*)initImage fromImageOrientation:(UIImageOrientation)orientation;
-- (UIImage *)rotateImageToOrientationUp;
+- (UIImage *)fixOrientation:(UIImage *)aImage;
+//-(UIImage*)imageByRotatingImage:(UIImage*)initImage fromImageOrientation:(UIImageOrientation)orientation;
+//- (UIImage *)rotateImageToOrientationUp;
 
 @end
 

@@ -68,7 +68,7 @@
 
 - (UIImage *)crop{    
     CGRect cropingViewRect = [_maskView convertRect:_maskView.cropRect toView:_cropingImageView];
-    UIImage *cropingImage = [_originImage imageByRotatingImage:_originImage fromImageOrientation:_originImage.imageOrientation];
+    UIImage *cropingImage = [_originImage fixOrientation:_originImage];
     CGImageRef tmpImageRef = CGImageCreateWithImageInRect([cropingImage CGImage], cropingViewRect);
     UIImage *tmpcropImage = [UIImage imageWithCGImage:tmpImageRef scale:cropingImage.scale orientation:cropingImage.imageOrientation];
     
