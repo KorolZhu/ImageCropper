@@ -10,4 +10,6 @@
 
 @interface HTImageCroperViewController : UIViewController
 
+- (id)initWithCropSize:(CGSize)cropSize image:(UIImage *)originImage;
+
 @end

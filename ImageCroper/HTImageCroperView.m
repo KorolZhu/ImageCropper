@@ -60,6 +60,10 @@
     return self;
 }
 
+- (void)setMaxMinZoomScale{
+    
+}
+
 - (void)rotateLeftAnimated{
     [UIView animateWithDuration:0.2f animations:^{
         _croperScrollView.transform = CGAffineTransformRotate(_croperScrollView.transform,-M_PI/2);

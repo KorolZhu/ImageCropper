@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45050A2A1808F54A000BF882 /* HTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45050A291808F54A000BF882 /* HTViewController.m */; };
 		450F120617CEFBCD007A8EC4 /* test2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 450F120517CEFBCD007A8EC4 /* test2.jpg */; };
 		455AB2E717CD8FD100489D46 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455AB2E617CD8FD100489D46 /* UIKit.framework */; };
 		455AB2E917CD8FD100489D46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455AB2E817CD8FD100489D46 /* Foundation.framework */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45050A281808F54A000BF882 /* HTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTViewController.h; sourceTree = "<group>"; };
+		45050A291808F54A000BF882 /* HTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTViewController.m; sourceTree = "<group>"; };
 		450F120517CEFBCD007A8EC4 /* test2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test2.jpg; sourceTree = "<group>"; };
 		455AB2E317CD8FD100489D46 /* ImageCroper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCroper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		455AB2E617CD8FD100489D46 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -104,6 +107,8 @@
 				455AB31B17CDCFC400489D46 /* ARCHelper.h */,
 				455AB31817CDCFA700489D46 /* UIImage-Extension.h */,
 				455AB31917CDCFA700489D46 /* UIImage-Extension.m */,
+				45050A281808F54A000BF882 /* HTViewController.h */,
+				45050A291808F54A000BF882 /* HTViewController.m */,
 				455AB2F517CD8FD100489D46 /* HTAppDelegate.h */,
 				455AB2F617CD8FD100489D46 /* HTAppDelegate.m */,
 				455AB30F17CD954D00489D46 /* HTCroperMaskView.h */,
@@ -211,6 +216,7 @@
 				455AB2F717CD8FD100489D46 /* HTAppDelegate.m in Sources */,
 				455AB30B17CD904B00489D46 /* HTImageCroperViewController.m in Sources */,
 				455AB30E17CD913600489D46 /* HTImageCroperView.m in Sources */,
+				45050A2A1808F54A000BF882 /* HTViewController.m in Sources */,
 				455AB31117CD954D00489D46 /* HTCroperMaskView.m in Sources */,
 				455AB31A17CDCFA700489D46 /* UIImage-Extension.m in Sources */,
 			);

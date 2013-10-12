@@ -13,6 +13,7 @@
 @interface HTImageCroperViewController ()
 {
     HTImageCroperView       *_croperView;
+    UIBarStyle              _previousNavBarStyle;
 }
 
 @end
@@ -22,24 +23,42 @@
 - (id)init{
     self = [super init];
     if (self) {
-        self.wantsFullScreenLayout = YES;
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+        self.edgesForExtendedLayout = UIRectEdgeAll;
+        self.extendedLayoutIncludesOpaqueBars = YES;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    return self;
+}
+
+- (id)initWithCropSize:(CGSize)cropSize image:(UIImage *)originImage{
+    self = [self init];
+    if (self) {
+        _croperView = [[HTImageCroperView alloc] initWithFrame:[[UIScreen mainScreen] bounds] croperSize:cropSize image:originImage];
+        _croperView.backgroundColor = [UIColor blackColor];
+        _croperView.clipsToBounds = YES;
     }
     return self;
 }
 
 - (void)loadView{
-    _croperView = [[HTImageCroperView alloc] initWithFrame:[[UIScreen mainScreen] bounds] croperSize:CGSizeMake(300.0f, 300.0f) image:[UIImage imageNamed:@"test2.jpg"]];
-    _croperView.backgroundColor = [UIColor blackColor];
-    
     self.view = _croperView;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self setUpUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _previousNavBarStyle = self.navigationController.navigationBar.barStyle;
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setBarStyle:_previousNavBarStyle];
 }
 
 - (void)setUpUI{
