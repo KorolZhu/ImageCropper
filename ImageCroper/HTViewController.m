@@ -80,18 +80,11 @@
 #pragma mark - imagePickerController
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
-       
-    }
-    else
-    {
-        UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-        
-        HTImageCroperViewController *_imgCropperViewController = [[HTImageCroperViewController alloc] initWithCropSize:CGSizeMake(300.0f,300.0f) image:originalImage];
-        
-        [picker pushViewController:_imgCropperViewController animated:YES];
-        
-    }
+    UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    HTImageCroperViewController *_imgCropperViewController = [[HTImageCroperViewController alloc] initWithCropSize:CGSizeMake(300.0f,300.0f) image:originalImage];
+    
+    [picker pushViewController:_imgCropperViewController animated:YES];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)selectedImage editingInfo:(NSDictionary *)editingInfo {

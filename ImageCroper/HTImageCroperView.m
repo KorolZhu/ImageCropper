@@ -49,10 +49,10 @@
         edgeInset.bottom = edgeInset.top;
         edgeInset.right = edgeInset.left;
         _croperScrollView.contentInset = edgeInset;
-        _croperScrollView.minimumZoomScale = 1.0f;
-        _croperScrollView.maximumZoomScale = 3.0f;
         _croperScrollView.delegate = self;
         [_croperScrollView addSubview:_cropingImageView];
+
+        [self setMaxMinZoomScale];
         
         [self addSubview:_croperScrollView];
         [self addSubview:_maskView];
@@ -61,7 +61,28 @@
 }
 
 - (void)setMaxMinZoomScale{
+    CGFloat xScale = CGRectGetWidth(self.bounds) / _originImage.size.width;
+    CGFloat yScale = CGRectGetWidth(self.bounds) / _originImage.size.height;
+    CGFloat minScale = MAX(xScale, yScale);
     
+    CGFloat maxScale = 2.0f;
+    if ([UIScreen instancesRespondToSelector:@selector(scale)]) {
+		maxScale = maxScale / [[UIScreen mainScreen] scale];
+	}
+    
+    if (minScale > maxScale) {
+        maxScale = minScale + 0.5f;
+    }
+    
+    _croperScrollView.maximumZoomScale = maxScale;
+    _croperScrollView.minimumZoomScale = minScale;
+    _croperScrollView.zoomScale = minScale;
+    
+    //居中
+    CGPoint contentOffset = CGPointZero;
+    contentOffset.x = (CGRectGetWidth(_cropingImageView.frame) - CGRectGetWidth(_croperScrollView.bounds)) / 2.0f;
+    contentOffset.y = (CGRectGetHeight(_cropingImageView.frame) - CGRectGetHeight(_croperScrollView.bounds)) / 2.0f;
+    _croperScrollView.contentOffset = contentOffset;
 }
 
 - (void)rotateLeftAnimated{

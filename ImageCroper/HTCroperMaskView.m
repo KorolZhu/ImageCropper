@@ -18,6 +18,8 @@
 @implementation HTCroperMaskView
 
 - (void)setCropsize:(CGSize)cropsize{
+    _cropsize = cropsize;
+    
     CGFloat x = (CGRectGetWidth(self.bounds) - cropsize.width) / 2;
     CGFloat y = (CGRectGetHeight(self.bounds) - cropsize.height) / 2;
     _croperRect = CGRectMake(x, y, cropsize.width, cropsize.height);
